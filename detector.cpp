@@ -243,9 +243,9 @@ bool Detector::slice_process_frame(Mat &curFrame, std::vector<Object> &detectedO
 			//用于保存解析结果的临时vector 
 			std::vector<cv::Rect> origin_rect_temp;
 			std::vector<float> origin_rect_cof_temp;
-			std::vector<float> classId_temp;
+			std::vector<int> classId_temp;
 			//解析blobs
-			parseYolov5(blobs[i], th, origin_rect_temp, origin_rect_cof_temp, classId);
+			parseYolov5(blobs[i], th, origin_rect_temp, origin_rect_cof_temp, classId_temp);
 			origin_rect.insert(origin_rect.end(), origin_rect_temp.begin(), origin_rect_temp.end());
 			origin_rect_cof.insert(origin_rect_cof.end(), origin_rect_cof_temp.begin(), origin_rect_cof_temp.end());
 			classId.insert(classId.end(), classId_temp.begin(), classId_temp.end());
